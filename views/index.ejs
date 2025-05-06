@@ -1,0 +1,14 @@
+<%- include("partials/header.ejs") %>
+
+<h1>blog post</h1>
+<a href="/new-post">add blog post</a>
+
+<% if (locals.articles) { %>
+    <% articles.forEach(title => { %>
+        <h1><%= title["new-title"] %></h1>
+    <% }); %>
+<% } %>
+
+
+
+<%- include("partials/footer.ejs") %>

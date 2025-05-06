@@ -19,6 +19,8 @@
   "homepage": "https://github.com/charc00al/blog-post#readme",
   "description": "",
   "dependencies": {
+    "body-parser": "^2.2.0",
+    "ejs": "^3.1.10",
     "express": "^5.1.0"
   }
 }
