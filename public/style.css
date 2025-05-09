@@ -1,4 +1,35 @@
+* {
+    background-color: rgb(29, 30, 32);
+    color: rgb(98, 155, 13);
+}
+
 main {
-    margin: 30vh;
-    margin-left: 50vh;
+    margin-top: 10vh;
+    margin-left: 20vh;
+}
+
+.add-post-btn {
+    background-color: darkmagenta;
+    padding: 5px;
+    border-radius: 10px;
+
+}
+
+.home-titles {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-title {
+    margin: 10px;
+    font-size: 20px;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    color: greenyellow;
 }
