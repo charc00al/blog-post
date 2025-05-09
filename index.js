@@ -31,13 +31,33 @@ app.post("/submit", (req, res) => {
 })
 
 // creating pages for articles 
-// the issue is, im not getting only the article clicked, but all of them -- so only the last one 
-
 app.get("/article/:id", (req, res) => {
     let articleID = parseInt(req.params.id);
     let article = allArticles.find(a => a.id === articleID);
-
     res.render("article.ejs", {article});
+})
+
+// editing article
+app.get("/edit-post/:id", (req, res) => {
+    let articleID = parseInt(req.params.id);
+    let article = allArticles.find(a => a.id === articleID);
+    res.render("edit-post.ejs", {article});
+    console.log(article);
+})
+
+app.post("/edit/:id", (req, res) => {
+    let articleID = parseInt(req.params.id);
+    // current article object (id)
+    let currentArticle = allArticles.find(a => a.id === articleID);
+    // edited article object (no id)
+    let editedArticle = req.body;
+
+    currentArticle.articleName = editedArticle.articleName;
+    currentArticle.articleText = editedArticle.articleText;
+
+    console.log(editedArticle, currentArticle);
+    // change the object parameters 
+    res.redirect("/");
 })
 
 // { articleName: 'mlk', articleText: '', id: 1 },

@@ -1,6 +1,11 @@
 <%- include("partials/header.ejs") %>
 
+<a href="/">blog post</a>
+
 <h1><%= article.articleName %></h1>
 <p> <%= article.articleText %> </p>
+
+<a href="/edit-post/<%=article.id%>">edit</a>
+
 
 <%- include("partials/footer.ejs") %>
