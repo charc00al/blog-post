@@ -1,12 +1,12 @@
 <%- include("partials/header", locals) %>
 
-<h1>blog post</h1>
+<h1 class="homepage-title">blog post</h1>
 <a class="add-post-btn" href="/new-post">add blog post</a>
 
-<div class="home-titles">
+<div class="home-article-titles">
     <% if (locals.articles) { %>
         <% articles.forEach(article => { %>
-            <a class="main-title" href="/article/<%= article.id %>"><%= article["articleName"] %></a>
+            <a class="home-art-title" href="/article/<%= article.id %>"><%= article["articleName"] %></a>
 
         <% }); %>
     <% } %>

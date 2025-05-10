@@ -1,14 +1,14 @@
-<%- include("partials/header.ejs") %>
+<%- include("partials/header", locals) %>
 
-<a href="/">blog post</a>
+<a class="go-home" href="/">blog post</a>
 
-<h1><%= article.articleName %></h1>
-<p> <%= article.articleText %> </p>
+<h1 class="article-name"><%= article.articleName %></h1>
+<p class="article-text"> <%= article.articleText %> </p>
 
-<a href="/edit-post/<%=article.id%>">edit</a>
+<a class="btn" href="/edit-post/<%=article.id%>">edit</a>
 
 <form action="/delete/<%= article.id %>" method="POST">
-    <button type="submit">Delete</button>
+    <button class="btn submit-btn" type="submit">delete</button>
 </form>
 
 <%- include("partials/footer.ejs") %>

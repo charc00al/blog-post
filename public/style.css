@@ -1,14 +1,8 @@
+/* all and fonts */
 * {
-    color: rgb(98, 155, 13);
+    --red-color: #D42043;
+    --black-color: #1B1A1A;
     font-family: 'Myanmar Khyay', 'Gill Sans', 'Trebuchet MS', sans-serif;
-}
-
-.home {
-    background-color: rgb(93, 11, 11);
-}
-
-.dark {
-    background-color: rgb(18, 5, 67);
 }
 
 @font-face {
@@ -17,33 +11,89 @@
     font-style: normal;
 }
 
-main {
-    display: flex;
-    flex-direction: column;
+/* font colors */
+.add-post-btn:hover,.btn:hover, .form, .article-text, .home-art-title, .home {
+    color: white;
 }
 
-.add-post-btn {
-    background-color: darkmagenta;
-    padding: 5px;
-    border-radius: 10px;
-
+.homepage-title, .add-post-btn {
+    color: var(--black-color);
 }
 
-.home-titles {
+.btn, .go-home, .article-name {
+    color: var(--red-color);
+}
+
+/* homepage -- red */ 
+
+.home {
+    background-color: var(--red-color);
+}
+
+.home-article-titles {
     margin-top: 20px;
     display: flex;
     flex-direction: column;
 }
 
-.main-title {
+.home-art-title {
     margin: 10px;
     font-size: 20px;
 }
 
+/* others -- black */
+.dark {
+    background-color: var(--black-color);
+}
+
+/* this is for all pages for now, but not sure if that's the way" */
+main {
+    display: flex;
+    flex-direction: column;
+}
+
+/* forms */
+.form {
+    border-color: var(--red-color);
+    border-style: solid;
+    border-width: 1.5px;
+    border-radius: 8px;
+    background-color: var(--black-color);
+}
+
+.form:focus {
+    border-color: var(--red-color);
+    outline: none;
+}
+
+/* buttons & links  */ 
 a {
     text-decoration: none;
 }
 
-a:hover {
-    color: greenyellow;
+.add-post-btn {
+    font-weight: 500;
+}
+
+.btn {
+    font-size: 16px;
+}
+
+.submit-btn {
+    padding: 0;
+    background: none;
+    border-style: none;
+    cursor: pointer;
+}
+
+/* change the autofil background and text color */ 
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active{
+    -webkit-box-shadow: 0 0 0 30px var(--black-color) inset !important;
+}
+
+input:-webkit-autofill{
+    -webkit-text-fill-color: white !important;
 }
