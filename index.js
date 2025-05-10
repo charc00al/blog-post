@@ -20,7 +20,7 @@ app.get("/new-post", (req, res) => {
     res.render("new-post.ejs");
 })
 
-// submitting new article 
+// submit new article 
 app.post("/submit", (req, res) => {
     let articleObj = req.body;
     // creating id
@@ -30,37 +30,33 @@ app.post("/submit", (req, res) => {
     res.redirect("/");
 })
 
-// creating pages for articles 
-app.get("/article/:id", (req, res) => {
-    let articleID = parseInt(req.params.id);
-    let article = allArticles.find(a => a.id === articleID);
-    res.render("article.ejs", {article});
+// create detail pages for articles 
+app.get("/article/:id", getArticle, (req, res) => {
+    res.render("article.ejs", {article: req.currentArticle});
 })
 
-// editing article
-app.get("/edit-post/:id", (req, res) => {
-    let articleID = parseInt(req.params.id);
-    let article = allArticles.find(a => a.id === articleID);
-    res.render("edit-post.ejs", {article});
-    console.log(article);
+// form to edit article 
+app.get("/edit-post/:id", getArticle, (req, res) => {
+    res.render("edit-post.ejs", {article: req.currentArticle});
 })
 
-app.post("/edit/:id", (req, res) => {
-    let articleID = parseInt(req.params.id);
-    // current article object (id)
-    let currentArticle = allArticles.find(a => a.id === articleID);
-    // edited article object (no id)
+// submit edited article
+app.post("/edit/:id", getArticle, (req, res) => {
     let editedArticle = req.body;
 
-    currentArticle.articleName = editedArticle.articleName;
-    currentArticle.articleText = editedArticle.articleText;
+    req.currentArticle.articleName = editedArticle.articleName;
+    req.currentArticle.articleText = editedArticle.articleText;
 
-    console.log(editedArticle, currentArticle);
-    // change the object parameters 
     res.redirect("/");
 })
 
-// { articleName: 'mlk', articleText: '', id: 1 },
+// custom middleware to get current article 
+function getArticle(req, res, next) {
+    let articleID = parseInt(req.params.id);
+    let articleObj = allArticles.find(a => a.id === articleID);
+    req.currentArticle = articleObj;
+    next();
+}
 
 app.listen(port, () => {
     console.log(`Server running on port ${port}.`)
