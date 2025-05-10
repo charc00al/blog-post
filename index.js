@@ -12,7 +12,7 @@ app.set("view engine", "ejs");
 
 // homepage with all articles
 app.get("/", (req, res) => {
-    res.render("index.ejs", {articles: allArticles});
+    res.render("index.ejs", {articles: allArticles, bodyClass: "home"});
 })
 
 // form to create new post
@@ -50,6 +50,14 @@ app.post("/edit/:id", getArticle, (req, res) => {
     res.redirect("/");
 })
 
+app.post("/delete/:id", getArticle, (req, res) => {
+    let articleIndex = allArticles.indexOf(req.currentArticle);
+
+
+    allArticles.splice(articleIndex, 1);
+    res.redirect("/");
+})
+
 // custom middleware to get current article 
 function getArticle(req, res, next) {
     let articleID = parseInt(req.params.id);
@@ -57,6 +65,7 @@ function getArticle(req, res, next) {
     req.currentArticle = articleObj;
     next();
 }
+
 
 app.listen(port, () => {
     console.log(`Server running on port ${port}.`)

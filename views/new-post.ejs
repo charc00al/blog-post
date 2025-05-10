@@ -1,13 +1,13 @@
-<%- include("partials/header.ejs") %>
+<%- include("partials/header", locals) %>
 
 <form action="/submit" method="POST">
-    <input type="text" name="articleName" value="" required><br>
+  <input type="text" name="articleName" value="" required><br>
 
-    <input type="text" name="articleText"><br><br>
-    
-    <input type="submit" value="Submit">
-  </form>
+  <input type="text" name="articleText"><br><br>
+  
+  <button type="submit">Submit</button>
+</form>
 
-  <a href="/"> discard</a>
+<a href="/"> discard</a>
 
 <%- include("partials/footer.ejs") %>

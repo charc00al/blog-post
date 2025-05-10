@@ -1,11 +1,25 @@
 * {
-    background-color: rgb(29, 30, 32);
     color: rgb(98, 155, 13);
+    font-family: 'Myanmar Khyay', 'Gill Sans', 'Trebuchet MS', sans-serif;
+}
+
+.home {
+    background-color: rgb(93, 11, 11);
+}
+
+.dark {
+    background-color: rgb(18, 5, 67);
+}
+
+@font-face {
+    font-family: 'Myanmar Khyay';
+    src: url(./font/Khyay-Regular.ttf);
+    font-style: normal;
 }
 
 main {
-    margin-top: 10vh;
-    margin-left: 20vh;
+    display: flex;
+    flex-direction: column;
 }
 
 .add-post-btn {
