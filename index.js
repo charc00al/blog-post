@@ -12,7 +12,7 @@ app.set("view engine", "ejs");
 
 // homepage with all articles
 app.get("/", (req, res) => {
-    res.render("index.ejs", {articles: allArticles, bodyClass: "home"});
+    res.render("index.ejs", {articles: allArticles, bodyClass: "homepage", mainClass: "homepage-layout"});
 })
 
 // form to create new post
@@ -47,7 +47,7 @@ app.post("/edit/:id", getArticle, (req, res) => {
     req.currentArticle.articleName = editedArticle.articleName;
     req.currentArticle.articleText = editedArticle.articleText;
 
-    res.redirect("/");
+    res.redirect(`/article/${req.params.id}`);
 })
 
 app.post("/delete/:id", getArticle, (req, res) => {

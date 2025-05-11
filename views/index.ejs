@@ -1,15 +1,25 @@
 <%- include("partials/header", locals) %>
 
-<h1 class="homepage-title">blog post</h1>
+<div class="title-wrapper">
+    <img class="circle" src="/images/elementcircles.png" alt="uneven circle made from black lines">
+    <h1 class="homepage-title">blog <br> post</h1>
+</div>
+
 <a class="add-post-btn" href="/new-post">add blog post</a>
 
-<div class="home-article-titles">
+<div class="home-art-titles">
     <% if (locals.articles) { %>
         <% articles.forEach(article => { %>
-            <a class="home-art-title" href="/article/<%= article.id %>"><%= article["articleName"] %></a>
+            <div class="art-titles-wrapper">
+                <a class="home-art-title" href="/article/<%= article.id %>"><%= article["articleName"] %></a>
+                <img class="arrow" src="/images/arrow.svg" alt="" width="15px">
+            </div>
+            <div class="line"></div>
 
         <% }); %>
     <% } %>
+
+
 </div>
 
 
